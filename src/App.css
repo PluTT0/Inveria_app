@@ -1,5 +1,10 @@
 
 body {
     margin: 0 auto;
-    background-color: rgb(189, 188, 188);
+    background-color: rgb(245, 245, 245);
+}
+
+.appContainer {
+    margin-top: 50px;
+    text-align: center;
 }
