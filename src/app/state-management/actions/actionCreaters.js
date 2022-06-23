@@ -1,2 +1,2 @@
-import { constans } from "../constans"
-
+/* import { constans } from "../constans"
+ */
