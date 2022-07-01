@@ -1,2 +1,0 @@
-import { constans } from "../constans"
-
