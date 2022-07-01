@@ -1,55 +1,29 @@
 {
   "name": "inveria_app",
-  "version": "0.1.0",
-  "private": true,
+  "version": "1.0.0",
+  "description": "Supprot app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PluTT0/Inveria_app.git"
+  },
+  "author": "Dmytro Kos",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PluTT0/Inveria_app/issues"
+  },
+  "homepage": "https://github.com/PluTT0/Inveria_app#readme",
   "dependencies": {
-    "@emotion/react": "^11.7.1",
-    "@emotion/styled": "^11.6.0",
-    "@mui/icons-material": "^5.2.5",
-    "@mui/material": "^5.2.5",
-    "@reduxjs/toolkit": "^1.7.1",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.5.0",
-    "@testing-library/user-event": "^7.2.1",
     "bcryptjs": "^2.4.3",
     "colors": "^1.4.0",
-    "cuid": "^2.1.8",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
-    "express-async-handler": "^1.2.0",
-    "jsonwebtoken": "^8.5.1",
-    "mongoose": "^6.4.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-redux": "^7.2.6",
-    "react-router-dom": "^6.2.1",
-    "react-scripts": "5.0.0",
-    "redux-thunk": "^2.4.1"
-  },
-  "scripts": {
-    "start": "react-scripts start node backend/server.js",
-    "server": "nodemon backend/server.js",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "mongoose": "^6.4.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.16",
-    "redux-devtools-extension": "^2.13.9"
+    "nodemon": "^2.0.18"
   }
 }
