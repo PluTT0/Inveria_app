@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { FaUser } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 import styled from 'styled-components';
 import { useSelector, useDispatch} from 'react-redux';
-import { register } from '../features/auth/authSlice';
+import { register, reset } from '../features/auth/authSlice';
+import Spinner from '../components/Spinner';
 
 
 const Container = styled.div`
@@ -64,8 +66,24 @@ const Register = () => {
   const {name, email, password, password2} = formData;
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const {user, isLoading, isSuccess, message} = useSelector(state => state.auth)
+  const {user, isLoading, isSuccess, isError, message} = useSelector(state => state.auth)
+
+  console.log(user)
+  useEffect(() => {
+    if(isError) {
+      toast.error(message)
+    }
+
+    // Redirect when logged in
+
+    if(isSuccess || user) {
+      navigate('/')
+    }
+
+    dispatch(reset())
+  },[isLoading, isError, isSuccess, user, dispatch, navigate, message])
 
   const onChange = (ev) => {
     ev.preventDefault()
@@ -90,11 +108,17 @@ const Register = () => {
       dispatch(register(userData))
     }
   }
+
+  if(isLoading) {
+    return (
+      <Spinner />
+    )
+  }
   return (
     <>
       <Container>
         <Title>
-          <FaUser/> Register {user}
+          <FaUser/> Register
         </Title>
         <SubTitle>
           Please create user
