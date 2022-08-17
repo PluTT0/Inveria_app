@@ -9,7 +9,6 @@ const ticketSchema = mongoose.Schema({
     taskTitle: {
       type: String,
       required: [true, 'Please select a task'],
-      enum: ['Create platform', 'Dj', 'food']
     },
     description: {
       type: String,
