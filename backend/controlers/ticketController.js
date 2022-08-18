@@ -12,7 +12,7 @@ const getTickets = asyncHandler( async (req, res) => {
 
     if(!user) {
         res.status(401)
-        throw new Error('User is not found')
+        throw new Error('User not found')
     }
 
     const tickets = await Ticket.find({user: req.user.id})
@@ -65,7 +65,7 @@ const createTicket = asyncHandler( async (req, res) => {
 
     if(!user) {
         res.status(401)
-        throw new Error('User is not found')
+        throw new Error('User not found')
     }
 
     const ticket = await Ticket.create({
@@ -79,8 +79,71 @@ const createTicket = asyncHandler( async (req, res) => {
     res.status(201).json(ticket)
 });
 
+// @dec Delete ticket
+// @roue DELETE /api/tickets/:id
+// @access Private
+const deleteTicket = asyncHandler( async (req, res) => {
+    // get user using the id in the JWT
+    const user = await User.findById(req.user.id)
+
+    if(!user) {
+        res.status(401)
+        throw new Error('User is not found')
+    }
+
+    const ticket = await Ticket.findById(req.params.id)
+
+    if(!ticket) {
+        res.status(401);
+        throw new Error('Ticket not found')
+    }
+
+    
+    if(ticket.user.toString() !== req.user.id) {
+        res.status(401);
+        throw new Error('Not Autorized')
+    }
+
+    await ticket.remove()
+
+    res.status(200).json({ success: true })
+});
+
+// @dec Update ticket
+// @roue PUT /api/tickets/:id
+// @access Private
+const updateTicket = asyncHandler( async (req, res) => {
+    // get user using the id in the JWT
+    const user = await User.findById(req.user.id)
+
+    if(!user) {
+        res.status(401)
+        throw new Error('User is not found')
+    }
+
+    const ticket = await Ticket.findById(req.params.id)
+
+    if(!ticket) {
+        res.status(401);
+        throw new Error('Ticket not found')
+    }
+
+    
+    if(ticket.user.toString() !== req.user.id) {
+        res.status(401);
+        throw new Error('Not Autorized')
+    }
+
+    const updateTicket = await Ticket.findByIdAndUpdate(req.params.id, req.body, { new: true })
+
+    res.status(200).json(updateTicket)
+})
+
+
 module.exports = {
     getTickets,
     createTicket,
     getTicket,
+    deleteTicket,
+    updateTicket,
 };
