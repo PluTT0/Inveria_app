@@ -46,6 +46,10 @@ const Button = styled.button`
     svg{
       margin: 5px;
     }
+  &:hover {
+    background: #727272;
+    transition: 0.5s ease;
+  }
 `;
 
 
@@ -59,7 +63,7 @@ const Home = () => {
           </Title>
           <SubTitle>Please, create new ticket</SubTitle>
         </TextContainer>
-        <Button reverse as={Link} to='/new-ticket' >
+        <Button reverse={"#fff"} as={Link} to='/new-ticket' >
           <FaQuestionCircle /> Create New Ticket
         </Button>
         <Button as={Link} to='/tickets' >
