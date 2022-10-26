@@ -68,9 +68,8 @@ const Register = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const {user, isLoading, isSuccess, isError, message} = useSelector(state => state.auth)
+  const {user, isLoading, isSuccess, isError, message} = useSelector(state => state.auth);
 
-  console.log(user)
   useEffect(() => {
     if(isError) {
       toast.error(message)

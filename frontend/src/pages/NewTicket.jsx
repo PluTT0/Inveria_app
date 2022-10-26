@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
-
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { createTicket, reset } from '../features/tickets/ticketSlice';
+import Spinner from '../components/Spinner';
 const Container = styled.div`
   text-align: center;
   max-width: 1280px;
 `;
 const TextWrapper = styled.div`
-  
 `;
 
 const FormWrapper = styled.div`
@@ -68,19 +70,39 @@ const Button = styled.button`
 
 const NewTicket = () => {
   const { user } = useSelector((state) => state.auth);
-
+  const { isLoading, isError, isSuccess, message } = useSelector((state) => state.ticket);
+  
   const [name] = useState(user.name);
   const [email] = useState(user.email);
   const [taskTitle, setTaskTitle] = useState('');
   const [description, setDescription] = useState('');
 
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if(isError) {
+      toast.error(message);
+    };
+
+    if(isSuccess) {
+      dispatch(reset());
+      navigate('/tickets')
+    }
+
+    dispatch(reset());
+  }, [dispatch, isError, isSuccess, message, navigate]);
+
+
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log(taskTitle, description)
-    setTaskTitle('');
-    setDescription('');
+    dispatch(createTicket({taskTitle, description}))
   };
 
+
+  if(isLoading) {
+    return <Spinner />
+  }
 
   return (
     <>

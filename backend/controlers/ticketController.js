@@ -57,7 +57,7 @@ const createTicket = asyncHandler( async (req, res) => {
 
     if(!taskTitle || !description) {
         res.status(400);
-        throw new Error('Please add a task and description')
+        throw new Error('Please add a task title and description')
     }
 
     // get user using the id in the JWT
