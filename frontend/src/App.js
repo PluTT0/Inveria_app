@@ -10,6 +10,7 @@ import Login from './pages/Login';
 import NewTicket from './pages/NewTicket';
 import Register from './pages/Register';
 import Tickets from './pages/Tickets';
+import Ticket from './pages/Ticket';
 
 const Container = styled.div`
   width: 100%;
@@ -32,6 +33,9 @@ const App = () => {
           </Route>
           <Route path='/tickets' element={<PrivateRoute />} >
             <Route path='/tickets' element={<Tickets />} />
+          </Route>
+          <Route path='/tickets/:ticketId' element={<PrivateRoute />} >
+            <Route path='/tickets/:ticketId' element={<Ticket />} />
           </Route>
         </Routes>
       </Container>

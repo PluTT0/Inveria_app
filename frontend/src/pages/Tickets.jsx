@@ -3,8 +3,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getTickets, reset }  from '../features/tickets/ticketSlice';
 import Spinner from '../components/Spinner';
 import BackButton from '../components/BackButton';
-import { TicketSection, FilterContainer, TicketContainer } from '../style/tickets';
+import { TicketSection, TicketContainer } from '../style/ticketsStyle';
 import TicketItem from '../components/TicketItem';
+import { ButtonWrapper } from '../style/ticketStyle';
 
 const Tickets = () => {
   const { tickets, isLoading, isSuccess} = useSelector((state) => state.tickets)
@@ -29,15 +30,11 @@ const Tickets = () => {
 
   return (
     <>
-      <BackButton url="/" />
+      <ButtonWrapper>
+        <BackButton url="/" />
+      </ButtonWrapper>
       <h1 style={{textAlign: "center"}}>Tickets</h1>
       <TicketContainer>
-        
-        <FilterContainer>
-          <div>Date</div>
-          <div>Product</div>
-          <div>Status</div>
-        </FilterContainer>
         <TicketSection>
           {
             tickets.map((ticket) => {

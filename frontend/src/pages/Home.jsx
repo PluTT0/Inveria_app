@@ -6,6 +6,9 @@ import {Container, TextContainer, Title, SubTitle, Button} from '../style/homePa
 
 
 const Home = () => {
+  const thisDate = new Date().toLocaleDateString('en-EN', { timeZone: 'UTC' })
+  
+  console.log(thisDate)
   return (
     <>
       <Container>

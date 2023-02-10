@@ -30,6 +30,7 @@ const Description = styled.p`
   font-size: 14px;
   text-align: left;
   padding: 0 10px 15px;
+  margin-bottom: 25px;
 `;
 
 const FilterContainer = styled.div`
@@ -47,6 +48,20 @@ const TicketStatus = styled.p`
   padding: 0 5px;
   border-radius: 7px;
   color: white;
+`;
+
+const CardBottom = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #f2f2f2;
+  margin: -5px -10px;
+  padding:  10px 15px;
+  background-color: rgba(242, 242, 242, 0.5);
+`;
+
+const TimeCreation = styled.span`
+
 `;
 
 const Button = styled.button`
@@ -73,4 +88,6 @@ export {
   TicketStatus,
   TicketContainer,
   Button,
+  TimeCreation,
+  CardBottom,
 }
