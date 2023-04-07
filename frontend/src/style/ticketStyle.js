@@ -58,21 +58,31 @@ export const CloseButton = styled.button`
     display: flex;
     margin: 20px;
     padding: 5px 10px;
-    background-color: rgb(84, 22, 22);
+    border: 1px solid rgb(84, 22, 22);
     border-radius: 7px;
-    border: 1px solid rgb(255, 130, 130);
     font-weight: 600;
-    color: #fff;
+    color: #000;
+    background-color: #fff;
+    &:hover {
+        color: rgb(84, 22, 22);
+        transition: 0.5s ease;
+    }
 `;
 
 export const DeleteButton = styled(CloseButton)`
-    background-color: rgb(255, 76, 76);
-    border: 1px solid rgb(255, 130, 130);
+    border: 1px solid rgb(255, 76, 76);
+    &:hover {
+        color: rgb(255, 76, 76);
+        transition: 0.5s ease;
+    }
 `;
 
 export const ReopenButton = styled(CloseButton)`
-    background-color: rgb(70, 146, 191);
-    border: 1px solid rgb(255, 130, 130);
+    border: 1px solid rgb(70, 146, 191);
+    &:hover {
+        color: rgb(70, 146, 191);
+        transition: 0.5s ease;
+    }
 `;
 
 export const ButtonWrapper = styled.div`

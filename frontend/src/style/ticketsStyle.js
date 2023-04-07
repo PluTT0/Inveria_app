@@ -54,7 +54,6 @@ const CardBottom = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-top: 1px solid #f2f2f2;
   margin: -5px -10px;
   padding:  10px 15px;
   background-color: rgba(242, 242, 242, 0.5);
@@ -65,8 +64,8 @@ const TimeCreation = styled.span`
 `;
 
 const Button = styled.button`
+  margin: 20px;
   padding: 5px 10px;
-  border: 1px solid #000;
   border-radius: 5px;
   background: #000;
   color: #fff;

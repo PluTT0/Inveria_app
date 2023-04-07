@@ -41,7 +41,8 @@ const Ticket = () => {
   };
 
   // reopen function
-  const setNewStatus = () => {
+  const setNewStatus = (e) => {
+    console.log(e.target)
     dispatch(reopenTicket(ticketId));
     toast.success('Ticket is reopened');
     navigate('/tickets')
