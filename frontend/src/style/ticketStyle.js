@@ -70,18 +70,22 @@ export const CloseButton = styled.button`
 `;
 
 export const DeleteButton = styled(CloseButton)`
-    border: 1px solid rgb(255, 76, 76);
+    border: 1px solid rgb(0, 0, 0);
     &:hover {
+        border: 1px solid rgb(255, 76, 76);
         color: rgb(255, 76, 76);
         transition: 0.5s ease;
+        background-color: black;
     }
 `;
 
 export const ReopenButton = styled(CloseButton)`
-    border: 1px solid rgb(70, 146, 191);
+    border: 1px solid rgb(0, 0, 0);
     &:hover {
+        border: 1px solid rgb(70, 146, 191);
         color: rgb(70, 146, 191);
         transition: 0.5s ease;
+        background-color: black;
     }
 `;
 
