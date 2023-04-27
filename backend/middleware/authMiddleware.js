@@ -5,14 +5,14 @@ const User = require('../models/userModel');
 const protect = asyncHandler(async (req, res, next) => {
   let token;
 
-  if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
+  if (req.headers.authorization && req.headers.authorization.startsWith('Inveria')) {
     try {
       //Get token from header
-      token = req.headers.authorization.split(' ')[1]
+      token = req.headers.authorization.split(' ')[1];
       //Verify token
-      const decoded = jwt.verify(token, process.env.JWT_SECRET)
-      // Grt user from token
-      req.user = await User.findById(decoded.id).select('-password')
+      const decoded = jwt.verify(token, process.env.JWT_SECRET);
+      // Get user from token
+      req.user = await User.findById(decoded.id).select('password');
 
       next()
     } catch(error) {
@@ -29,4 +29,4 @@ const protect = asyncHandler(async (req, res, next) => {
 })
 
 
-module.exports = { protect }
+module.exports = { protect };
