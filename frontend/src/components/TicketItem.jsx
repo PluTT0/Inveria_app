@@ -3,8 +3,6 @@ import { Description, Ticket, TicketStatus, Title, Button, CardBottom, TimeCreat
 import {Link} from 'react-router-dom';
 
 const TicketItem = ({ticket}) => {
-  
-  console.log(new Date(ticket.createdAt).toString('us-US'));
   return (
     <>
       <Ticket>
