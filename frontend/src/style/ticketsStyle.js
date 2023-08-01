@@ -76,6 +76,9 @@ const Button = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
+  &:hover{
+    transform: scale(0.98);
+  };
 `;
 
 export {

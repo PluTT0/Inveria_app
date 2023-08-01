@@ -30,6 +30,7 @@ import {
   ReopenButton,
 } from "../style/ticketStyle";
 import NoteItem from "../components/NoteItem";
+import { AddBtn, TextAreaNote, Xbtn } from "../style/modalWindow";
 
 const customStyles = {
   content: {
@@ -90,6 +91,7 @@ const Ticket = () => {
     dispatch(deleteTicket(ticketId));
     toast.success("Ticket is deleted");
     navigate("/tickets");
+    notesReset()
   };
 
   // reopen function
@@ -142,7 +144,7 @@ const Ticket = () => {
           {ticket.status !== "closed" ? (
             <ButtonWrapper>
               <CloseButton onClick={onTicketClose}>Close</CloseButton>
-              <button onClick={openModal} className="btn"><FaPlus /> Add Note</button>
+              <AddBtn onClick={openModal} ><FaPlus /> Add Note</AddBtn>
             </ButtonWrapper>
           ) : (
             <ButtonWrapper style={{ display: "flex" }}>
@@ -153,17 +155,16 @@ const Ticket = () => {
         </ButtonWrapper>
       </TicketWrapper>
       <Modal isOpen={modalIsOpen} onRequestClose={closeModal} style={customStyles} contentLabel="Add Note">
-        <h2>Add Note</h2>
+        <Title style={{margin: "10px"}}>Add Note</Title>
         <form onSubmit={onNoteSubmit}>
           <div className="from-group">
-            <textarea 
-              name="noteText" 
+            <TextAreaNote 
               id="noteText" 
               className="form-control" 
               placeholder="Note text"
               value={noteText}
               onChange={(e) => setNoteText(e.target.value)}
-            ></textarea>
+            ></TextAreaNote>
           </div>
           <div className="from-group">
             <button className="btn" type='submit'>
@@ -171,11 +172,12 @@ const Ticket = () => {
             </button>
           </div>
         </form>
-        <button className="btn-close" onClick={closeModal}>x</button>
+        <Xbtn onClick={closeModal}>X</Xbtn>
       </Modal>
       <h2>Notes</h2>
       {notes.map((note) => {
-        return <NoteItem note={note}  key={note.id} />;
+        console.log(note)
+        return <NoteItem note={note} key={note.id} />;
       })}
     </Container>
   );

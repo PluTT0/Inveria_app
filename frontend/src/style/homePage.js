@@ -46,6 +46,7 @@ const Button = styled.button`
   &:hover {
     background: #727272;
     transition: 0.5s ease;
+    transform: scale(0.98);
   }
 `;
 

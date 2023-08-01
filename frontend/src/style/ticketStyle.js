@@ -55,17 +55,18 @@ export const UserName = styled.div`
 `;
 
 export const CloseButton = styled.button`
+    font-size: 16px;
     display: flex;
     margin: 20px;
-    padding: 5px 10px;
+    padding: 10px;
     border: 1px solid rgb(84, 22, 22);
     border-radius: 7px;
     font-weight: 600;
     color: #000;
     background-color: #fff;
-    &:hover {
-        color: rgb(84, 22, 22);
-        transition: 0.5s ease;
+    cursor: pointer;
+    &:hover{
+        transform: scale(0.98);
     }
 `;
 
@@ -76,6 +77,7 @@ export const DeleteButton = styled(CloseButton)`
         color: rgb(255, 76, 76);
         transition: 0.5s ease;
         background-color: black;
+        transform: scale(0.98);
     }
 `;
 
@@ -86,6 +88,7 @@ export const ReopenButton = styled(CloseButton)`
         color: rgb(70, 146, 191);
         transition: 0.5s ease;
         background-color: black;
+        transform: scale(0.98);
     }
 `;
 

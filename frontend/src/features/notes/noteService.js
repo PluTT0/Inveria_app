@@ -9,7 +9,7 @@ const getNotes = async (ticketId, token) => {
           authorization:`Inveria ${token}`
       }
   }
-  const response =  await axios.get(API_URL+ ticketId + '/notes', config);
+  const response =  await axios.get(API_URL+ticketId + '/notes', config);
 
   return response.data;
 };
@@ -21,7 +21,7 @@ const createNote = async (noteText, ticketId, token) => {
           authorization:`Inveria ${token}`
       }
   }
-  const response =  await axios.post(API_URL+ ticketId + '/notes', 
+  const response =  await axios.post(API_URL+ticketId + '/notes', 
     {
       text: noteText
     },
