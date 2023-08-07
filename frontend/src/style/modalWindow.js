@@ -13,7 +13,8 @@ const TextAreaNote = styled.textarea`
     width: 550px;
     height: 150px;
     padding: 5px 7px;
-    margin: 0 10px; 
+    margin: 0 10px;
+    resize: none;
 `;
 
 const Xbtn = styled.button`
@@ -30,7 +31,7 @@ const Xbtn = styled.button`
     cursor: pointer;
     &:hover {
         transform: scale(0.98);
-    }
+    й}
 `;
 
 export  {

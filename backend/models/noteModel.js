@@ -11,19 +11,15 @@ const noteSchema = mongoose.Schema({
       required: true,
       ref: 'Ticket'
     },
-    taskTitle: {
-      type: String,
-      required: [true, 'Please select a task'],
-    },
     text: {
       type: String,
       required: [true, 'Please enter a text'],
     },
-    isStaff: {
+    isAdmin: {
       type: Boolean,
       default: false,
     },
-    staffId: {
+    adminId: {
       type: String,
     }
   },

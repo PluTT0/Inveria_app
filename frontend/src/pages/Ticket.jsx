@@ -84,6 +84,7 @@ const Ticket = () => {
     e.preventDefault()
     dispatch(createNote({noteText, ticketId}))
     closeModal()
+    setNoteText('')
   };
 
   // delete function
@@ -176,8 +177,7 @@ const Ticket = () => {
       </Modal>
       <h2>Notes</h2>
       {notes.map((note) => {
-        console.log(note)
-        return <NoteItem note={note} key={note.id} />;
+        return <NoteItem note={note} key={note._id} />;
       })}
     </Container>
   );
