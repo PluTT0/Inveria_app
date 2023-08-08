@@ -5,6 +5,7 @@ const dotenv = require(`dotenv`);
 const { errorHandler } = require('./middleware/errorMiddleware');
 const connectDB = require('./config/db');
 const PORT = process.env.PORT || 5000;
+const path = require('path')
 
 dotenv.config();
 
@@ -23,6 +24,20 @@ app.get('/', (req, res) => {
 // Routes
 app.use('/api/users', require('./routes/userRoutes'));
 app.use('/api/tickets', require('./routes/ticketRoutes'));
+
+
+// Serve Frontend
+if (process.env.NODE_ENV === 'production') {
+  //set build folder static
+  app.use(express.static(path.join(__dirname, '../frontend/build')))
+
+  app.get('*', (req, res) => res.sendFile(__dirname, '../', 'frontend', 'buil', 'index.html'))
+} else {
+  app.get('/', (req, res) => {
+    res.status(200).json('Welcome to Support desk')
+  });
+}
+
 
 app.use(errorHandler);
 

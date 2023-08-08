@@ -3,32 +3,12 @@ import { useSelector, useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import Modal from "react-modal";
 import { FaPlus } from "react-icons/fa";
-import {
-  getTicket,
-  closeTicket,
-  reopenTicket,
-  deleteTicket,
-} from "../features/tickets/ticketSlice";
+import { getTicket, closeTicket, reopenTicket, deleteTicket, } from "../features/tickets/ticketSlice";
 import { getNotes, createNote, reset as notesReset } from "../features/notes/noteSlice";
 import BackButton from "../components/BackButton";
 import { useParams, useNavigate } from "react-router-dom";
 import Spinner from "../components/Spinner";
-import {
-  Container,
-  TicketId,
-  Title,
-  TicketWrapper,
-  Desctiption,
-  TicketStatus,
-  DataCreated,
-  TicketInfo,
-  UserInfo,
-  UserName,
-  CloseButton,
-  DeleteButton,
-  ButtonWrapper,
-  ReopenButton,
-} from "../style/ticketStyle";
+import { Container, TicketId, Title, TicketWrapper, Desctiption, TicketStatus, DataCreated, TicketInfo, UserInfo, UserName, CloseButton, DeleteButton, ButtonWrapper, ReopenButton, } from "../style/ticketStyle";
 import NoteItem from "../components/NoteItem";
 import { AddBtn, TextAreaNote, Xbtn } from "../style/modalWindow";
 
@@ -175,10 +155,12 @@ const Ticket = () => {
         </form>
         <Xbtn onClick={closeModal}>X</Xbtn>
       </Modal>
-      <h2>Notes</h2>
-      {notes.map((note) => {
-        return <NoteItem note={note} key={note._id} />;
-      })}
+      <div className="note-wrapper" style={{margin:'20px 0', paddingBottom: "15px"}}>
+        <h2 style={{textAlign: 'center', marginBottom: "10px"}}>Notes</h2>
+        {notes.map((note) => {
+          return <NoteItem note={note} key={note._id} />;
+        })}
+      </div>
     </Container>
   );
 };
