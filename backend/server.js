@@ -5,7 +5,7 @@ const dotenv = require(`dotenv`);
 const { errorHandler } = require('./middleware/errorMiddleware');
 const connectDB = require('./config/db');
 const PORT = process.env.PORT || 5000;
-const path = require('path')
+const path = require('path');
 
 dotenv.config();
 
@@ -27,7 +27,7 @@ app.use('/api/tickets', require('./routes/ticketRoutes'));
 
 
 // Serve Frontend
-if (process.env.NODE_ENV==='production') {
+if (process.env.NODE_ENV === 'production') {
   //set build folder static
   app.use(express.static(path.join(__dirname, '../frontend/build')))
 
